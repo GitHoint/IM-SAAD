@@ -12,3 +12,16 @@
     z-index: -1;
     box-shadow: 25px 25px 50px 0 black inset, -25px -25px 50px 0 black inset;
 }
+
+.navbar-custom {
+    background-color: yellow; 
+    border-color: yellow;
+}
+
+.navbar-custom .navbar-nav>li>a {
+    color: white; 
+}
+
+.navbar-custom .navbar-nav>li>a:hover {
+    background-color: #45a049; 
+}
