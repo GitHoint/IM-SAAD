@@ -1,5 +1,4 @@
-#home-image
-{
+#home-image{
     background: url('https://cdn.prod.website-files.com/604a97c70aee09eed25ce991/61897a35583a9b51db018d3e_MartinPublicSeating-97560-Importance-School-Library-blogbanner1.jpg');
     opacity: 75%;
     background-color: black;
@@ -11,4 +10,16 @@
     margin: 0;
     z-index: -1;
     box-shadow: 25px 25px 50px 0 black inset, -25px -25px 50px 0 black inset;
+}
+
+#login-container{
+    background-color: #575353;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
