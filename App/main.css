@@ -47,3 +47,12 @@ body{
 .back-custom{
     background-color: rgba(207, 207, 207, 0.85);
 }
+.footer{
+    position:fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 15px;
+    font-weight: 500;
+    opacity: 80%;
+    color: whitesmoke;
+}
