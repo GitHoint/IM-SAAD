@@ -14,3 +14,9 @@ async function connection(){
 }
 */
 let conny = new dbConn();
+console.log(conny);
+
+async function main(){
+    conny.select()
+}
+main()
