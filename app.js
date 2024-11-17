@@ -1,14 +1,16 @@
 const express = require('express');
-
-// Initialize the Express application
-const app = express();
-
-// Define a route for the root URL ('/') and specify the response
-app.get('/', (req, res) => {
-  res.send('Hello, World!'); // Send 'Hello, World!' as the response
-});
-
-// Start the server and have it listen on the defined port
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`); // Log a message to the console indicating the server is running
-});
+const dbConn = require('./App/server/models/model');
+const mysql = require('promise-mysql');
+const fs = require('fs');
+/*
+async function connection(){
+    let conn = await createTcpPool();
+    console.log(conn);
+    conn.query('SELECT * FROM users', function(err, results, fields) {
+        if (err) throw esrr;
+        console.log(results);
+    });
+    return conn;
+}
+*/
+let conny = new dbConn();
