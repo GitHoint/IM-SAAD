@@ -1,5 +1,5 @@
 const express = require('express');
-const dbConn = require('./App/server/models/model');
+const user = require('./App/server/models/user');
 const mysql = require('promise-mysql');
 const fs = require('fs');
 /*
@@ -13,10 +13,13 @@ async function connection(){
     return conn;
 }
 */
-let conny = new dbConn();
-console.log(conny);
+
 
 async function main(){
-    conny.select()
+    person = new user();
+    console.log(person);
+    person.userSearch('ID = 0',function(results){
+        console.log(results);
+    });
 }
 main()

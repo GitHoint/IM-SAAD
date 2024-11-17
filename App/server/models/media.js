@@ -5,7 +5,9 @@ class mediaModel extends model{
         super()
     }
     async mediaSearch(where){
-        return await this.select('media','*',where);
+        return await this.select('media','*',where,function(results,callback){
+            callback(results);
+        });
     }
     async mediaInsert(entry){
         this.insert('media',entry);

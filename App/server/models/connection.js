@@ -16,6 +16,8 @@ class connectionCreator{
           user: this.name, 
           password: this.password, 
           database: this.database, 
+          waitForConnections: true,
+          connectionLimit: 10, 
         };
         return mysql.createPool(dbConfig);
     }
