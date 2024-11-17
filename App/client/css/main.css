@@ -35,6 +35,7 @@
 body{
     background-color: #575353;
 }
+
 .image-container {
     display: grid;
     grid-template-columns: 1fr 1fr; 
@@ -46,4 +47,15 @@ body{
     height: auto; 
     object-fit: cover; 
     opacity: 70%;
+}
+
+.double-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-section,
+.right-section {
+    flex: 1;
+    padding: 10px;
 }
