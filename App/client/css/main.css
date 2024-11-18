@@ -59,3 +59,12 @@ body{
     flex: 1;
     padding: 10px;
 }
+
+hr.solid {
+    border-top: 3px solid #FFFFFF;
+  }
+
+  .vl {
+    border-left: 3px solid #FFFFFF;
+    height: auto;
+  }
