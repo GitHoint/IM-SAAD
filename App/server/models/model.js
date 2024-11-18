@@ -23,7 +23,7 @@ class model extends connection{
     }
     async insert(table, entry){
         let conn = await this.createTcpPool(); // creation connection to database
-        conn.query('INSERT INTO '+ table +'SET ?', entry, function(err, results) {    // query database using sql
+        conn.query('INSERT INTO '+ table +' SET ?', entry + ';', function(err, results) {    // query database using sql
             if (err) throw err; // error handle
             console.log('Inserted Row ID:', results.insertId); // confirmation of query 
         });

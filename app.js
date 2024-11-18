@@ -21,5 +21,11 @@ async function main(){
     person.userSearch('userId = 1',function(results){
         console.log(results);
     });
+    jeff = {
+        username: 'jeff',
+        password: 'jeff',
+        role: 'jeff',
+    }
+    person.userInsert(jeff);
 }
 main()
