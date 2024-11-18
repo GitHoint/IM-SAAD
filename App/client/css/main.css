@@ -49,23 +49,10 @@ body{
     opacity: 70%;
 }
 
-.double-container {
+.catalogue-container {
     display: flex;
     justify-content: space-between;
 }
 
-.left-section,
-.right-section {
-    flex: 1;
-    padding: 10px;
-}
 
-hr.solid {
-    border-top: 3px solid #FFFFFF;
-    margin-bottom: 0;
-  }
 
-  .vl {
-    border-left: 3px solid #FFFFFF;
-    height: auto;
-  }
