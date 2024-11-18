@@ -38,7 +38,6 @@ body{
 
 .image-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
     margin-top: 5px; 
 }
 
@@ -48,11 +47,10 @@ body{
     object-fit: cover; 
     opacity: 70%;
 }
-
-.catalogue-container {
-    display: flex;
-    justify-content: space-between;
+.custom-border-card
+{
+    border: 2px solid black;
+    border-radius: 10px;
 }
-
 
 
