@@ -21,9 +21,9 @@ class model extends connection{
         callback(results);
     });
     }
-    async insert(table, entry){
+    async insert(entry,sql){
         let conn = await this.createTcpPool(); // creation connection to database
-        conn.query('INSERT INTO '+ table +'SET ?', entry, function(err, results) {    // query database using sql
+        conn.query(sql, entry, function(err, results) {    // query database using sql
             if (err) throw err; // error handle
             console.log('Inserted Row ID:', results.insertId); // confirmation of query 
         });
