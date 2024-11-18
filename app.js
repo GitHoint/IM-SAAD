@@ -18,7 +18,7 @@ async function connection(){
 async function main(){
     person = new user();
     console.log(person);
-    person.userSearch('ID = 0',function(results){
+    person.userSearch('userId = 1',function(results){
         console.log(results);
     });
 }

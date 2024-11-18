@@ -16,7 +16,7 @@ class model extends connection{
         console.log(table);
         console.log(columns);
         console.log(where); // creation connection to database
-        conn.query('SELECT  '+ columns + ' FROM ' + table + 'WHERE ' + where + ";", function(err, results, fields) { // query database
+        conn.query('SELECT  '+ columns + ' FROM ' + table + ' WHERE ' + where + ";", function(err, results, fields) { // query database
         if (err) throw err;
         callback(results);
     });

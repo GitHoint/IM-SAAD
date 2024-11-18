@@ -5,8 +5,7 @@ class userModel extends model{
         super()
     }
     async userSearch(where,callback){
-        this.select('users','*',where,function(results,callback){
-            if (err) throw err;
+        this.select('users','*',where,function(results){
             callback(results);
         });
     }
@@ -16,7 +15,7 @@ class userModel extends model{
     async userDelete(){
         this.delete('users',where);
     }
-    async userInsert(){
+    async userInsert(entry){
         this.insert('users',entry);
     }
 }

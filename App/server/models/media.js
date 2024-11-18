@@ -4,8 +4,8 @@ class mediaModel extends model{
     constructor(){
         super()
     }
-    async mediaSearch(where){
-        return await this.select('media','*',where,function(results,callback){
+    async mediaSearch(where,callback){
+        return await this.select('media','*',where,function(results){
             callback(results);
         });
     }
