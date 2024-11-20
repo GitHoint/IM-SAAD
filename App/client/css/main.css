@@ -12,10 +12,6 @@
     z-index: -1;
     box-shadow: 25px 25px 50px 0 black inset, -25px -25px 50px 0 black inset;
 }
-main{
-    display: block;
-    height: auto;
-}
 .main-content{
     width: 50%;
     height: 100%;
@@ -81,11 +77,11 @@ hr.solid {
 
 .footer{
     padding: 15px;
-    position:fixed;
     text-align: center;
+    position:absolute;
     width: 100%;
     height: auto;
-    bottom: 0px;
+    bottom: 0;
     font-weight: 500;
     opacity: 80%;
     color: whitesmoke;
@@ -99,19 +95,37 @@ hr.solid {
     color: whitesmoke;
     font-weight: bold;
 }
-.split-cols{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+
+.filter-bar-custom{
+    border-color: rgb(223, 185, 103);
+    background-color: rgb(153, 130, 83);
+       
 }
-.split-container{
-    background-color: rgb(223, 185, 103);
-    width: 35%;
+
+.search-panels{
+    padding: 15px;
     border-radius: 5px;
-    padding-bottom: 25%;
+    background-color: #dfdfdf;
+    width: 50%;
+    margin: auto;
+    height: 600px;
+}
 
-
+.div-bar{
+    border-top: 2px solid whitesmoke;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.searchbar{
+    width: 75%;
+    margin: auto;
+}
+.patBox{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #00000036;
+    margin-bottom: 20px;
 }
