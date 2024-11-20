@@ -26,8 +26,8 @@ main{
     height: auto;
 }
 .navbar-custom {
-    background-color: rgb(201, 192, 74);
-    border-color: rgb(201, 192, 74);
+    background-color: rgb(223, 185, 103);
+    border-color: rgb(223, 185, 103);
     padding-top: 20px;  
     padding-bottom: 20px; 
     margin-bottom: 0;
@@ -63,10 +63,10 @@ main{
     margin-right: auto;     
     max-width: 50%;      
     max-height: 50%;        
-    object-fit: cover;  
+    object-fit: cover;
 }
 .btn-custom {
-    background-color: rgb(201, 192, 74);  
+    background-color: rgb(223, 185, 103);  
     color: black;                
     border-radius: 4px;          
     padding: 10px 20px;          

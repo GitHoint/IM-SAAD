@@ -3,53 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <title>Home :: AML</title>
 </head>
 <body>
     <header>
-    <nav class="navbar navbar-custom">
-        <div class="container-fluid">
-            <div class="navbar-header">
+        <nav class="navbar navbar-expand-lg navbar-custom bg-custom">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="#">AML</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="catalogue.html">Catalogue</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#"><i class="bi bi-person"></i> Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Catalogue</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 <main>
-    <div class="central-container">
-        <img class="card-img-top" src="./Images/Adsett Seating.webp" alt="Library photo">
-        <div class="card custom-border-card">
-            <div class="card-body">
-                <h1 class="card-title">About Us</h1>
-                <p class="card-text">national network of library branches spread across all cities and towns in England, providing a wide range of media services, including books, journals, periodicals, CDs, DVDs, games, and multimedia titles
-                AML operates under a central governance structure with its headquarters located in London, which oversees budget management and overall strategy. Each city or town has a main branch, with larger cities like Sheffield and Manchester having multiple branches to meet the demand, while smaller towns may operate with just one. Within each city, resources such as books and media are shared among branches and managed by the primary branch to ensure efficient utilization.</p>
+    <div class="container py-5">
+        <!-- Central Container for About Us Section -->
+        <div class="row mb-4">
+            <div class="col-lg-6">
+                <img class="card-img" src="./Images/Adsett Seating.webp" alt="Library photo">
+            </div>
+            <div class="col-lg-6">
+                <div class="card custom-border-card" style="min-height: 400px;"> 
+                    <div class="card-body d-flex flex-column"> 
+                        <h1 class="card-title">About Us:</h1>
+                        <p class="card-text">
+                            AML is a national network of library branches spread across all cities and towns in England, providing a wide range of media services, including books, journals, periodicals, CDs, DVDs, games, and multimedia titles.
+                            AML operates under a central governance structure with its headquarters located in London, overseeing budget management and overall strategy. Each city or town has a main branch, with larger cities like Sheffield and Manchester having multiple branches to meet demand, while smaller towns may operate with just one. Resources such as books and media are shared among branches and managed by the primary branch to ensure efficient utilization.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-        <h1></h1>
-    </div>
-    <div class="catalogue-container">
-        <img class="card-img-top" src="./Images/Adsett Library.webp" alt="Library photo">
-        <div class="card custom-border-card">
-            <div class="card-body">
-                <h1 class="card-title">Catalogue</h1>
-                <p class="card-text">This is where you can find our catalogue with a wide range of different media including books, journals, periodicals, CDs, DVDs, games, and multimedia titles</p>
-                <a href="catalogue.html" class="btn btn-custom">Catalogue</a>
+    
+        <div class="row mb-4">
+            <!-- Image Section -->
+            <div class="col-lg-6">
+                <img class="card-img" src="./Images/Adsett Library.webp" alt="Library photo">
+            </div>
+        
+            <!-- Catalogue Card Section -->
+            <div class="col-lg-6">
+                <div class="card custom-border-card" style="min-height: 400px;"> 
+                    <div class="card-body d-flex flex-column"> 
+                        <h1 class="card-title">Catalogue:</h1>
+                        <p class="card-text">
+                            This is where you can find our catalogue with a wide range of different media, including books, journals, periodicals, CDs, DVDs, games, and multimedia titles.
+                        </p>
+                        <a href="catalogue.html" class="btn btn-custom mt-auto">Browse Catalogue</a> <!-- Align button to the bottom -->
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card custom-border-card">
+                    <div class="card-body">
+                        <h1 class="card-title">News Feed:</h1>
+                        <p class="card-text">
+                            Stay updated with our latest stock and library news.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
     <footer class="footer">
