@@ -14,7 +14,7 @@
 }
 body{
     background-color: #575353;
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: url('<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">') 'Roboto', Arial, Helvetica, sans-serif;
 }
 .navbar-custom {
     background-color: rgb(201, 192, 74);
