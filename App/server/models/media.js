@@ -10,7 +10,7 @@ class mediaModel extends model{
         });
     }
     async mediaInsert(entry){
-        this.insert('media',entry);
+        this.insert(entry,'INSERT INTO media(name,size,description,userId,type) VALUES(?,?,?,1,?)');
     }
     async mediaUpdate(value,where){
         this.update('media',value,where);

@@ -5,11 +5,12 @@ class registraion{
         this.user = new user();
     }
     async register(name,pass,job){
-        member = {
-            username: name,
-            password: pass,
-            role: job,
-        }
+        let member = [
+            name,
+            pass,
+            job,
+        ]
         this.user.userInsert(member);   
     }
 }
+module.exports = registraion;

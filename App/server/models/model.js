@@ -13,16 +13,13 @@ class model extends connection{
     }
     async select(table,columns,where,callback){ 
         let conn = await this.createTcpPool();
-        console.log(table);
-        console.log(columns);
-        console.log(where); // creation connection to database
         conn.query('SELECT  '+ columns + ' FROM ' + table + ' WHERE ' + where + ";", function(err, results, fields) { // query database
         if (err) throw err;
         callback(results);
     });
     }
     async insert(entry,sql){
-        let conn = await this.createTcpPool(); // creation connection to database
+        let conn = await this.createTcpPool();
         conn.query(sql, entry, function(err, results) {    // query database using sql
             if (err) throw err; // error handle
             console.log('Inserted Row ID:', results.insertId); // confirmation of query 

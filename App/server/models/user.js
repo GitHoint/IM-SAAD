@@ -9,14 +9,14 @@ class userModel extends model{
             callback(results);
         });
     }
-    async userUpdate(){
+    async userUpdate(value,where){
         this.update('users',value,where);
     }   
-    async userDelete(){
+    async userDelete(where){
         this.delete('users',where);
     }
     async userInsert(entry){
-        this.insert('INSERT INTO users(username,password,role) VALUES(?,?,?)',entry);
+        this.insert(entry,'INSERT INTO users(username,password,role) VALUES (?,?,?)');
     }
 }
 

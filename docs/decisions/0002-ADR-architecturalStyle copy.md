@@ -30,7 +30,7 @@ we had to choose an architectural style for our proof of conecpt that we would u
 
 ## Decision Outcome
 
-we chose a mostly service oriented approach obviosuly as it is a web application there will be a cleint server however the design of the software and the approach we will take to implement it is a service based approach.
+we chose a mostly mvc approach obviosuly as it is a web application there will be a cleint server however the design of the software and the approach we will take to implement it is a service based approach.
 
 <!-- This is an optional element. Feel free to remove. -->
 ### Consequences
