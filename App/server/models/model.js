@@ -1,11 +1,17 @@
+/*
+Title: Model
+Description: this is a parent class for all database models that creates basic functionaloty to be expanded upon
+in children classes
+Primary Author: Patrick Newell
+Further Authors:
+Date Last Modified: 24/11/2024
+Technologies: Nodejs, Mysql
+Notes:
+-lookup how callback works if you wish to do selection 
+*/
+
 const mysql = require('promise-mysql');
 var connection = require('./connection');
-
-//creates a coonection to the databbase
-// allows insertion
-// selection
-// deletion
-// updating
 
 class model extends connection{
     constructor(){
