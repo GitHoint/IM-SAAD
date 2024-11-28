@@ -12,12 +12,17 @@
     z-index: -1;
     box-shadow: 25px 25px 50px 0 black inset, -25px -25px 50px 0 black inset;
 }
-
+.main-content{
+    width: 50%;
+    height: 100%;
+    background-color: red;
+}
 .navbar-custom {
-    background-color: rgb(201, 192, 74);
-    border-color: rgb(201, 192, 74);
+    background-color: rgb(223, 185, 103);
+    border-color: rgb(205, 157, 54);
     padding-top: 20px;  
-    padding-bottom: 20px; 
+    padding-bottom: 20px;
+    display: block;
 }
 
 .navbar-custom .navbar-nav>li>a {
@@ -33,7 +38,7 @@
     color: #777777;
 }
 body{
-    background-color: #575353;
+    background-color: #5c5c5c;
 }
 
 .image-container {
@@ -63,9 +68,115 @@ body{
 hr.solid {
     border-top: 3px solid #FFFFFF;
     margin-bottom: 0;
-  }
+}
 
   .vl {
     border-left: 3px solid #FFFFFF;
     height: auto;
-  }
+}
+
+.footer{
+    padding: 15px;
+    text-align: center;
+    position:absolute;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    font-weight: 500;
+    opacity: 80%;
+    color: whitesmoke;
+    background-color: rgb(223, 185, 103);
+    border-color: rgb(205, 157, 54);
+    display: block;
+
+}
+.footer > p {
+    margin: 0;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.filter-bar-custom{
+    border-color: rgb(223, 185, 103);
+    background-color: rgb(153, 130, 83);
+       
+}
+
+.search-panels{
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #dfdfdf;
+    width: 95%;
+    margin: auto;
+    height: 700px;
+}
+
+.div-bar{
+    border-top: 2px solid whitesmoke;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.searchbar{
+    width: 75%;
+    margin: auto;
+}
+.patBox{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: #00000036;
+    margin-bottom: 20px;
+}
+#login-image{
+    background: url('https://cdn.prod.website-files.com/604a97c70aee09eed25ce991/61897a35583a9b51db018d3e_MartinPublicSeating-97560-Importance-School-Library-blogbanner1.jpg');
+    opacity: 75%;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    border: 0;
+    margin: 0;
+    z-index: -1;
+    box-shadow: 25px 25px 50px 0 black inset, -25px -25px 50px 0 black inset;
+}
+.white-text{
+    color: whitesmoke;
+}
+.div-bar{
+    border-top: 2px solid whitesmoke;
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#login-container{
+    padding: 15px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #646161af;
+    width: 30%;
+    height: 50%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.back-custom{
+    background-color: rgba(207, 207, 207, 0.85);
+}
+.login-footer{
+    position:fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 15px;
+    font-weight: 500;
+    opacity: 80%;
+    color: whitesmoke;
+}
