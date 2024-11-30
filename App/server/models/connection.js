@@ -1,3 +1,12 @@
+/*
+Title: connection
+Description: this class creates the strucutre for a database pooling cononection to a mysql server database
+Primary Author: Patrick Newell
+Further Authors:
+Date Last Modified: 24/11/2024
+Technologies: Nodejs, PromiseMysql
+*/
+
 const mysql = require('promise-mysql');
 const fs = require('fs');
 
