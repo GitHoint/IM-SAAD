@@ -19,19 +19,19 @@ class account{
         this.email = email;
         this.login = 'email = ' + email + ' AND ' + ' password = ' + password; 
     }
-    email(){
-        this.member.userUpdate('email',this.login);
+    email(email){
+        this.member.userUpdate('email = ' + email ,this.login);
     }
-    password(){
-        this.member.userUpdate('password',this.login);
+    password(password){
+        this.member.userUpdate('password = ' + password,this.login);
     }
-    username(){
-        this.member.userUpdate('username',this.login);
+    username(username){
+        this.member.userUpdate('username = ' + username,this.login);
     }
-    birth(){
-        this.member.userUpdate('dob',this.login);
+    birth(dob){
+        this.member.userUpdate('dob = ' + dob,this.login);
     }
-    phone(){
-        this.member.userUpdate('phone',this.login);
+    phone(phone){
+        this.member.userUpdate('phone = ' + phone,this.login);
     }
 }
