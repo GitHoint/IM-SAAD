@@ -1,25 +1,45 @@
-const express = require('express');
-const user = require('./App/server/models/user');
-const registerer = require('./App/server/controllers/registration');
-const borrowTime = require('./App/server/controllers/borrow');
-const mysql = require('promise-mysql');
-const fs = require('fs');
-const registraion = require('./App/server/controllers/registration');
-/*
-async function connection(){
-    let conn = await createTcpPool();
-    console.log(conn);
-    conn.query('SELECT * FROM users', function(err, results, fields) {
-        if (err) throw esrr;
-        console.log(results);
-    });
-    return conn;
-}
-*/
+const express = require("express");
+const path = require("path")
+const app = express();
+
+app.set('view engine', 'ejs');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
-async function main(){
-    // database connection queries wont work  on uni wifi due to firewall shit so make sure if you wanna do them you give me your ip 
-    // and you are not on uni wifi
-}
-main()
+//Roots
+app.get("/", (req, res) => {
+    res.render("home");
+});
+
+app.get("/register", (req, res) => {
+    res.render("register");
+});
+
+app.get("/login", (req, res) => {
+    res.render("login");
+})
+
+
+//Posts
+
+app.post("/register", (req, res) => {
+    var password = null;
+    const registerData = {
+        name: req.body.firstname + req.body.surname,
+        birthday: req.body.birthday,
+        phone: req.body.phone,
+        email: req.body.email,
+    }
+    if (req.body.password == req.body.confirm) {
+        password = req.body.password;
+    }
+    console.log(registerData, password);
+})
+
+
+const port = 8080;
+app.listen(port, () => {
+    console.log(`listening on port: ${port} `)
+})
