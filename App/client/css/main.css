@@ -30,8 +30,8 @@ main{
     height: auto;
 }
 .navbar-custom {
-    background-color: rgb(201, 192, 74);
-    border-color: rgb(201, 192, 74);
+    background-color: rgb(205, 157, 54);
+    border-color:rgb(205, 157, 54);
     padding-top: 20px;  
     padding-bottom: 20px; 
 }
@@ -41,15 +41,12 @@ main{
 }
 
 .navbar-custom .navbar-nav>li>a:hover {
-    background-color: white; 
+    background-color: grey; 
 }
 .navbar-custom .navbar-brand {
     font-size: 36px;
     font-weight: bold;
     color: #777777;
-}
-body{
-    background-color: #575353;
 }
 
 .image-container {
@@ -70,11 +67,6 @@ body{
     justify-content: space-between;
 }
 
-.left-section,
-.right-section {
-    flex: 1;
-    padding: 10px;
-}
 
 hr.solid {
     border-top: 3px solid #FFFFFF;
@@ -100,4 +92,48 @@ hr.solid {
 }
 .confirmation-container{
     background-color: white;
+}
+.footer{
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    font-weight: 500;
+    opacity: 80%;
+    color: whitesmoke;
+    background-color: rgb(223, 185, 103);
+    border-color: rgb(205, 157, 54);
+    display: block;
+
+}
+.btn-custom {
+    background-color: rgb(223, 185, 103);  
+    color: black;                
+    border-radius: 4px;          
+    padding: 10px 20px;          
+    text-decoration: none;       
+}
+.btn-custom:hover {
+    background-color: grey;  
+}
+.custom-border-card
+{
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.card {
+    width: 100%;        
+    margin: 0 auto;  
+}
+.card-body {
+    padding: 15px;
+}
+.card-img-top {
+    display: block;         
+    margin-left: auto;       
+    margin-right: auto;     
+    max-width: 50%;      
+    max-height: 50%;        
+    object-fit: cover;
 }
