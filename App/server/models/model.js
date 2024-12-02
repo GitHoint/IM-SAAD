@@ -1,11 +1,17 @@
+/*
+Title: Model
+Description: this is a parent class for all database models that creates basic functionaloty to be expanded upon
+in children classes
+Primary Author: Patrick Newell
+Further Authors:
+Date Last Modified: 24/11/2024
+Technologies: Nodejs, Mysql
+Notes:
+-lookup how callback works if you wish to do selection 
+*/
+
 const mysql = require('promise-mysql');
 var connection = require('./connection');
-
-//creates a coonection to the databbase
-// allows insertion
-// selection
-// deletion
-// updating
 
 class model extends connection{
     constructor(){
@@ -13,17 +19,14 @@ class model extends connection{
     }
     async select(table,columns,where,callback){ 
         let conn = await this.createTcpPool();
-        console.log(table);
-        console.log(columns);
-        console.log(where); // creation connection to database
         conn.query('SELECT  '+ columns + ' FROM ' + table + ' WHERE ' + where + ";", function(err, results, fields) { // query database
         if (err) throw err;
         callback(results);
     });
     }
-    async insert(table, entry){
-        let conn = await this.createTcpPool(); // creation connection to database
-        conn.query('INSERT INTO '+ table +'SET ?', entry, function(err, results) {    // query database using sql
+    async insert(entry,sql){
+        let conn = await this.createTcpPool();
+        conn.query(sql, entry, function(err, results) {    // query database using sql
             if (err) throw err; // error handle
             console.log('Inserted Row ID:', results.insertId); // confirmation of query 
         });
