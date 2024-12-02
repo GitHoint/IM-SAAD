@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path")
 const app = express();
-
+const registration = require("./App/server/controllers/registration");
 app.set('view engine', 'ejs');
 
 app.use(express.json());
@@ -35,7 +35,8 @@ app.post("/register", (req, res) => {
     if (req.body.password == req.body.confirm) {
         password = req.body.password;
     }
-    console.log(registerData, password);
+    const register = new registration();
+    register.register(registerData.name, password, "member", registerData.email, registerData.birthday, registerData.phone)
 })
 
 

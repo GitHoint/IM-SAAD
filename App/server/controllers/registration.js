@@ -12,7 +12,7 @@ Notes:
 
 var user = require('../models/user');
 
-class registraion{
+class registration{
     constructor(){
         this.user = new user();
     }
@@ -28,4 +28,4 @@ class registraion{
         this.user.userInsert(member);   
     }
 }
-module.exports = registraion;
+module.exports = registration;
