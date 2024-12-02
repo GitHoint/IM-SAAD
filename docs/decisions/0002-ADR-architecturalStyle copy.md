@@ -30,18 +30,15 @@ we had to choose an architectural style for our proof of conecpt that we would u
 
 ## Decision Outcome
 
-we chose a mostly mvc approach obviosuly as it is a web application there will be a cleint server however the design of the software and the approach we will take to implement it is a service based approach.
+we chose a mostly mvc approach obviosuly as it is a web application there will be a client server however the design of the software and the approach we will take to implement it is a mvc based approach in terms of the server class organisation and implementation.
 
 <!-- This is an optional element. Feel free to remove. -->
 ### Consequences
 
-* Good, because {positive consequence, e.g., improvement of one or more desired qualities, …}
-* Bad, because {negative consequence, e.g., compromising one or more desired qualities, …}
+* Good, because {easy to model heavy cruding appliactions and it allows for easy planning maintenance and scalability in future which this project needs}
+* Bad, because {can be quite a slow approach that requires prior knowledge of its use to implement}
 
 ### Confirmation
 
-the confirmation can be found in the proof of concept as well as in the stage 3 componenet diagram of our c4 model diagrams these outline how our proof of concept is implemented and show how the services interact with the overall system
+the confirmation can be found in the proof of concept as well as in the stage 3 componenet diagram of our c4 model diagrams these outline how our proof of concept is implemented and show how the models and controllers interact with the overall system
 
-## More Information
-
-although we have gone with service architecture there are some base modules of our design that are there to be used as the bases for each service such as models that simplify the implementation of basic crud allowing other developers to much more rapidly build services
