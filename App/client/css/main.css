@@ -48,9 +48,6 @@ main{
     font-weight: bold;
     color: #777777;
 }
-body{
-    background-color: #575353;
-}
 
 .image-container {
     display: grid;
@@ -70,11 +67,6 @@ body{
     justify-content: space-between;
 }
 
-.left-section,
-.right-section {
-    flex: 1;
-    padding: 10px;
-}
 
 hr.solid {
     border-top: 3px solid #FFFFFF;
