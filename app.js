@@ -20,6 +20,6 @@ async function connection(){
 
 async function main(){
     // database connection queries wont work  on uni wifi due to firewall shit so make sure if you wanna do them you give me your ip 
-    // and you are not on uni wifi
+    // and you are not on uni wif
 }
 main()
