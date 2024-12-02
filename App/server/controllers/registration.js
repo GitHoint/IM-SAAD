@@ -16,11 +16,14 @@ class registraion{
     constructor(){
         this.user = new user();
     }
-    async register(name,pass,job){
+    async register(name,pass,job,email,dob,phone){
         let member = [
             name,
             pass,
             job,
+            email,
+            dob,
+            phone
         ]
         this.user.userInsert(member);   
     }

@@ -28,7 +28,7 @@ class userModel extends model{
         this.delete('users',where);
     }
     async userInsert(entry){
-        this.insert(entry,'INSERT INTO users(username,password,role) VALUES (?,?,?)');
+        this.insert(entry,'INSERT INTO users(username,password,role,email,dob,phone) VALUES (?,?,?,?,?,?)');
     }
 }
 
