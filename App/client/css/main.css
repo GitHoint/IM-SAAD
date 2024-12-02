@@ -30,8 +30,8 @@ main{
     height: auto;
 }
 .navbar-custom {
-    background-color: rgb(201, 192, 74);
-    border-color: rgb(201, 192, 74);
+    background-color: rgb(205, 157, 54);
+    border-color:rgb(205, 157, 54);
     padding-top: 20px;  
     padding-bottom: 20px; 
 }
@@ -100,4 +100,18 @@ hr.solid {
 }
 .confirmation-container{
     background-color: white;
+}
+.footer{
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    bottom: 0px;
+    font-weight: 500;
+    opacity: 80%;
+    color: whitesmoke;
+    background-color: rgb(223, 185, 103);
+    border-color: rgb(205, 157, 54);
+    display: block;
+
 }
