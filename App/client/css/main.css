@@ -41,7 +41,7 @@ main{
 }
 
 .navbar-custom .navbar-nav>li>a:hover {
-    background-color: white; 
+    background-color: grey; 
 }
 .navbar-custom .navbar-brand {
     font-size: 36px;
@@ -106,4 +106,14 @@ hr.solid {
     border-color: rgb(205, 157, 54);
     display: block;
 
+}
+.btn-custom {
+    background-color: rgb(223, 185, 103);  
+    color: black;                
+    border-radius: 4px;          
+    padding: 10px 20px;          
+    text-decoration: none;       
+}
+.btn-custom:hover {
+    background-color: grey;  
 }
