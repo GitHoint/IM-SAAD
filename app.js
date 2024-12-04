@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path")
 const app = express();
 const registration = require("./App/server/controllers/registration");
+const search = require("./App/server/controllers/search");
 const bcrypt = require('bcrypt');
 var session = require('express-session');
 
@@ -56,6 +57,10 @@ app.post("/login", async (req, res) => {
         email: req.body.email,
         password: req.body.password
     }
+})
+
+app.post("/catalogue", async (req, res) =>{
+
 })
 const port = 8080;
 app.listen(port, () => {
