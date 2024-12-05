@@ -11,15 +11,15 @@
 <body class="d-flex flex-column justify-content-center">
 <div id="login-image"></div>
 <div class="col-md-10 mx-auto col-lg-5">
-    <form class="p-4 p-md-5 rounded-3 shadow back-custom">
+    <form class="p-4 p-md-5 rounded-3 shadow back-custom" method="post" action="/login">
         <h2 class="text-center">Login</h2>
         <hr class="my-4">
       <div class="form-floating mb-3 ">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
         <label for="floatingPassword">Password</label>
       </div>
       <div class="checkbox mb-3">
