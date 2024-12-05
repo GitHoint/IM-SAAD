@@ -4,7 +4,10 @@ class search{
     constructor(){
         this.media = new media()
     }
-    async searchMedia(){
-        this.media.mediaSelect()
+    async searchMedia(where,callback){
+        this.media.mediaSearch(where,function(res){
+            callback(res);
+        })
     }
 }
+module.exports = search;

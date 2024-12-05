@@ -31,3 +31,4 @@ class mediaModel extends model{
         this.delete('media',where);
     }
 }
+module.exports = mediaModel;
