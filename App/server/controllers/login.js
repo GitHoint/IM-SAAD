@@ -4,7 +4,7 @@ class login{
     constructor(){
         this.user = new user();
     }
-    loginUser(email,password,callback){
+    loginUser(email,callback){
         this.user.userSearch(' email = ' + email,function(results){
             callback(results);
         });
