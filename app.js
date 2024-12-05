@@ -6,6 +6,9 @@ const search = require("./App/server/controllers/search");
 const bcrypt = require('bcrypt');
 var session = require('express-session');
 
+//session
+var currUser = null;
+var loginState = false;
 
 app.set('view engine', 'ejs');
 
@@ -28,9 +31,12 @@ app.get("/login", (req, res) => {
     res.render("login");
 })
 
+app.get("/home", (req, res) => {
+    res.render("home");
+})
+
 
 //Posts
-
 app.post("/register",  async (req, res) => {
     var password = null;
     const registerData = {
