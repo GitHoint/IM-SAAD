@@ -5,8 +5,9 @@ class login{
         this.user = new user();
     }
     loginUser(email,password,callback){
-        this.user.userSearch(' email = ' + email + ' AND ' + ' password = ' + password,function(results){
+        this.user.userSearch(' email = ' + email,function(results){
             callback(results);
         });
     }
 }
+module.exports = login;
