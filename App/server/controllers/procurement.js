@@ -17,7 +17,7 @@ class procurement{
         this.media = new media();
     }
     async procure(name,size,description,type){
-        entry = [
+        let entry = [
             name,
             size,
             description,
