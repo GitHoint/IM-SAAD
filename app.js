@@ -3,6 +3,7 @@ const path = require("path")
 const app = express();
 const registration = require("./App/server/controllers/registration");
 const search = require("./App/server/controllers/search");
+const login = require("./App/server/controllers/login");
 const bcrypt = require('bcrypt');
 var session = require('express-session');
 
@@ -63,6 +64,10 @@ app.post("/login", async (req, res) => {
         email: req.body.email,
         password: req.body.password
     }
+    const loginObj = new login();
+    loginObj.loginUser(req.body.email, function(result){
+        console.log(result);
+    })
 })
 
 app.post("/catalogue", async (req, res) =>{
