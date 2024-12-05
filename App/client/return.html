@@ -39,52 +39,34 @@
         </nav>
     </header>
     <main>
-        <div class="page-content page-container" id="page-content">
-            <div class="padding">
-                <div class="row container d-flex justify-content-center">
-                    <div class="col-xl-6 col-md-12">
-                        <div class="card user-card-full">
-                            <div class="row m-0">
-                                <div class="col-sm-4 bg-c-lite-green user-profile">
-                                    <div class="card-block text-center text-white">
-                                        <div class="m-b-25">
-                                            <img src="" class="img-fluid rounded-circle profile-img" alt="User-Profile-Image">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="card-block">
-                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
-                                        <div class="row">
-                                            <div class="col-sm-6 mb-3">
-                                                <p class="m-b-10 f-w-600">Email</p>
-                                                <input type="email" id="email" name="email" class="form-control" value="oligars13@gmail.com">
-                                            </div>
-                                            <div class="col-sm-6 mb-3">
-                                                <p class="m-b-10 f-w-600">Phone</p>
-                                                <input type="number" id="quantity" name="quantity" class="form-control" value="07703395516">
-                                            </div>
-                                        </div>
-                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Personal Information</h6>
-                                        <div class="row">
-                                            <div class="col-sm-6 mb-3">
-                                                <p class="m-b-10 f-w-600">Full Name</p>
-                                                <input type="text" id="fname" name="fname" class="form-control" value="Oliver Topley">
-                                            </div>
-                                            <div class="col-sm-6 mb-3">
-                                                <p class="m-b-10 f-w-600">Birthday</p>
-                                                <input type="date" id="birthday" name="birthday" class="form-control" value="06/01/04">
-                                            </div>
-                                            <a href="" class="btn btn-custom mt-auto">Update</a> 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="card">
+            <div class="card custom-border-card">
+              <div class="card-header">
+                Stock Return
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Return Your Stock Here</h2>
+                <p class="card-text">Please enter the details of the stock you wish to return</p>
+                <form>
+                  <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control form-control-lg" id="title" placeholder="Title Here" name="title">
+                  </div>
+                  <div class="mb-3">
+                    <label for="browser" class="form-label">Choose The Media Type</label>
+                    <select class="form-control">
+                        <option>Choose Media Type</option>
+                        <option>Cd</option>
+                        <option>Book</option>
+                        <option>Video Games</option>
+                        <option>Multi-media Platforms</option>
+                      </select>
+                  </div>
+                  <a href="confirmation.html" class="btn btn-custom mt-auto">Return</a> 
+                </form>
+              </div>
             </div>
-        </div>
+          </div>
 </main>
 <footer class="footer">
 <p>AML Library System - 2024©</p>
