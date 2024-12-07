@@ -17,7 +17,7 @@ class mediaModel extends model{
         super() // calls the super class constrcutor in its own constructor
     }
     async mediaSearch(where,callback){
-        return await this.select('media','*',where,function(results){
+        return this.select('media','*',where,function(results){
             callback(results);
         });
     }

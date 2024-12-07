@@ -1,0 +1,14 @@
+{
+  "name": "im-saad",
+  "version": "1.0.0",
+  "description": "3rd year system archiecture and design proof of conecept\r developed by:\r Patrick Newell\r Josh Osborne\r Oliver Topley",
+  "main": "app.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC"
+}
