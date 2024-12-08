@@ -71,9 +71,19 @@ app.post("/login", async (req, res) => {
 })
 
 app.post("/catalogue", async (req, res) =>{
-    search.searchMedia("mediaId = 1", function(results){
-        console.log(results);
-    })
+    const mediaId = req.body.mediaId;  // Extract mediaId from the request body
+  
+  // Call the search.searchMedia function
+  search.searchMedia(`mediaId = ${mediaId}`, function(results) {
+    // Log the results to the console (optional)
+    console.log(results);
+
+    // Send the results back to the clients
+    res.json({
+      message: 'Search completed successfully!',
+      data: results
+    });
+  });
 })
 
 const port = 8080;

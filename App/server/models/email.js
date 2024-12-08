@@ -22,12 +22,12 @@ class email{
           }
       });
     }
-    sendMail(){
+    sendMail(from,to,subject,message){
       var mailOptions = {
-        from: 'youremail@gmail.com',
-        to: 'myfriend@yahoo.com',
-        subject: 'Sending Email using Node.js',
-        text: 'That was easy!'
+        from: from,
+        to: to,
+        subject: subject,
+        text: message
       };
       
       this.transporter.sendMail(mailOptions, function(error, info){
