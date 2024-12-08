@@ -71,7 +71,7 @@ app.post("/login", async (req, res) => {
 })
 
 app.post("/catalogue", async (req, res) =>{
-
+    search.searchMedia()
 })
 const port = 8080;
 app.listen(port, () => {
