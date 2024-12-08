@@ -3,9 +3,13 @@ const path = require("path")
 const app = express();
 const registration = require("./App/server/controllers/registration");
 const search = require("./App/server/controllers/search");
+const login = require("./App/server/controllers/login");
 const bcrypt = require('bcrypt');
 var session = require('express-session');
 
+//session
+var currUser = null;
+var loginState = false;
 
 app.set('view engine', 'ejs');
 
@@ -28,11 +32,12 @@ app.get("/login", (req, res) => {
     res.render("login");
 })
 
-app.get("/catalogue", (req, res) =>{
-    res.render("catalogue");
+app.get("/home", (req, res) => {
+    res.render("home");
 })
-//Posts
 
+
+//Posts
 app.post("/register",  async (req, res) => {
     var password = null;
     const registerData = {
@@ -59,10 +64,14 @@ app.post("/login", async (req, res) => {
         email: req.body.email,
         password: req.body.password
     }
+    const loginObj = new login();
+    loginObj.loginUser(req.body.email, function(result){
+        console.log(result);
+    })
 })
 
 app.post("/catalogue", async (req, res) =>{
-
+    search.searchMedia()
 })
 const port = 8080;
 app.listen(port, () => {

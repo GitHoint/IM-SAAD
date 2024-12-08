@@ -13,10 +13,25 @@ Notes:
 var user = require('../models/user');
 
 class account{
-    constructor(){
+    constructor(email,password){
         this.member = new user();
+        this.password = password;
+        this.email = email;
+        this.login = 'email = ' + email + ' AND ' + ' password = ' + password; 
     }
-    updateDetail(){
-        this.member.userUpdate('',);
+    email(email){
+        this.member.userUpdate('email = ' + email ,this.login);
+    }
+    password(password){
+        this.member.userUpdate('password = ' + password,this.login);
+    }
+    username(username){
+        this.member.userUpdate('username = ' + username,this.login);
+    }
+    birth(dob){
+        this.member.userUpdate('dob = ' + dob,this.login);
+    }
+    phone(phone){
+        this.member.userUpdate('phone = ' + phone,this.login);
     }
 }
