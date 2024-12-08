@@ -11,13 +11,31 @@ Notes:
 var nodemailer = require('nodemailer');
 
 class email{
-    constructor(){
-         this.transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-              user: 'youremail@gmail.com',
-              pass: 'yourpassword'
-            }
-        });
+    constructor(email, pass){
+      this.email = email
+      this.pass = pass;
+      this.transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: this.email,
+            pass: this.pass
+          }
+      });
+    }
+    sendMail(){
+      var mailOptions = {
+        from: 'youremail@gmail.com',
+        to: 'myfriend@yahoo.com',
+        subject: 'Sending Email using Node.js',
+        text: 'That was easy!'
+      };
+      
+      this.transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
     }
 }

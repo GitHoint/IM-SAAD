@@ -28,7 +28,9 @@ app.get("/login", (req, res) => {
     res.render("login");
 })
 
-
+app.get("/catalogue", (req, res) =>{
+    res.render("catalogue");
+})
 //Posts
 
 app.post("/register",  async (req, res) => {
