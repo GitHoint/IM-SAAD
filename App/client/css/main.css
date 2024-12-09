@@ -184,3 +184,12 @@ hr.solid {
 .input-custom{
     opacity: 80%;
 }
+.login-footer{
+    position:fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 15px;
+    font-weight: 500;
+    opacity: 80%;
+    color: whitesmoke;
+}
