@@ -79,7 +79,7 @@ app.post("/search", async (req, res) => {
         { mediaName: "Media2", mediaDesc: "This is 2nd Media" }
     ]
     let searcher = new search();
-    searcher.searchMedia("name = " + "'" + req.body.query +"'", function(results){
+    searcher.searchMedia("name = " + "'" + req.body.query +"'" + " AND " + " userId = 1" , function(results){
         res.render("catalogue", {
             searchResults: results
         })
