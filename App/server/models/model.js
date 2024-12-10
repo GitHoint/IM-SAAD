@@ -19,7 +19,7 @@ class model extends connection{
     }
     async select(table,columns,where,callback){ 
         let conn = await this.createTcpPool();
-        conn.query('SELECT  '+ columns + ' FROM ' + table + ' WHERE ' + where + ";", function(err, results, fields) { // query database
+        conn.query('SELECT  '+ columns + ' FROM ' + table + ' WHERE ' + where, function(err, results, fields) { // query database
         if (err) throw err;
         callback(results);
     });

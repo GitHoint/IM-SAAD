@@ -71,18 +71,6 @@ app.post("/login", async (req, res) => {
 })
 
 app.post("/catalogue", async (req, res) =>{
-    const mediaId = req.body.mediaId;  // Extract mediaId from the request body
-    let searcher = new search();
-    // Call the search.searchMedia function
-    searcher.searchMedia(`mediaId = ${mediaId}`, function(results) {
-        // Log the results to the console (optional)
-        console.log(results);
-        // Send the results back to the clients
-        res.json({
-        message: 'Search completed successfully!',
-        data: results
-        });
-    });
 })
 
 app.post("/search", async (req, res) => {
@@ -90,9 +78,12 @@ app.post("/search", async (req, res) => {
         { mediaName: "Media1", mediaDesc: "This is 1st Media" },
         { mediaName: "Media2", mediaDesc: "This is 2nd Media" }
     ]
-    res.render("catalogue", {
-        searchResults: searchResults
-    })
+    let searcher = new search();
+    searcher.searchMedia("name = " + "'" + req.body.query +"'", function(results){
+        res.render("catalogue", {
+            searchResults: results
+        })
+    });
 })
 
 app.post("/borrow", async (req, res) => {
