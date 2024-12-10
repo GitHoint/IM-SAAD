@@ -44,6 +44,7 @@
             <% for (let i=0; i<searchResults.length; i++){ %>
                 <div class="card">
                     <form action="/borrow" method="post">
+                        <input type="hidden" name="mediaId" value="<%= searchResults[i].mediaId %>">
                         <div class="card-header text-center"><%=searchResults[i].name%></div>
                         <div class="card-body d-flex justify-content-between"><%=searchResults[i].description%>
                             <button type="submit" class="btn btn-outline-success">Borrow</button>
