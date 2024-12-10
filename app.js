@@ -72,18 +72,17 @@ app.post("/login", async (req, res) => {
 
 app.post("/catalogue", async (req, res) =>{
     const mediaId = req.body.mediaId;  // Extract mediaId from the request body
-  
-  // Call the search.searchMedia function
-  search.searchMedia(`mediaId = ${mediaId}`, function(results) {
-    // Log the results to the console (optional)
-    console.log(results);
-
-    // Send the results back to the clients
-    res.json({
-      message: 'Search completed successfully!',
-      data: results
+    let searcher = new search();
+    // Call the search.searchMedia function
+    searcher.searchMedia(`mediaId = ${mediaId}`, function(results) {
+        // Log the results to the console (optional)
+        console.log(results);
+        // Send the results back to the clients
+        res.json({
+        message: 'Search completed successfully!',
+        data: results
+        });
     });
-  });
 })
 
 app.post("/search", async (req, res) => {
