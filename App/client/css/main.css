@@ -97,6 +97,7 @@ hr.solid {
 }
 .footer{
     padding: 15px;
+    position: fixed;
     text-align: center;
     width: 100%;
     height: auto;
@@ -192,4 +193,15 @@ hr.solid {
     font-weight: 500;
     opacity: 80%;
     color: whitesmoke;
+}
+.searchContainer{
+    width: 60%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.searchContainer > .card{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

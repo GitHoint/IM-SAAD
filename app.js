@@ -13,6 +13,7 @@ var loginState = false;
 
 app.set('view engine', 'ejs');
 
+app.use(express.static(__dirname + '/App/client'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -35,7 +36,6 @@ app.get("/login", (req, res) => {
 app.get("/home", (req, res) => {
     res.render("home");
 })
-
 
 //Posts
 app.post("/register",  async (req, res) => {
@@ -86,6 +86,20 @@ app.post("/catalogue", async (req, res) =>{
   });
 })
 
+app.post("/search", async (req, res) => {
+    let searchResults = [
+        { mediaName: "Media1", mediaDesc: "This is 1st Media" },
+        { mediaName: "Media2", mediaDesc: "This is 2nd Media" }
+    ]
+    res.render("catalogue", {
+        searchResults: searchResults
+    })
+})
+
+app.post("/borrow", async (req, res) => {
+    console.log(req.body);
+    res.render("home");
+})
 
 const port = 8080;
 app.listen(port, () => {
