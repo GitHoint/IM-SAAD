@@ -330,3 +330,18 @@ h6 {
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
+/* Style for the container that holds the card */
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+.card.custom-border-card {
+    width: 80%; 
+    max-width: 800px; 
+    border-radius: 15px;
+}
+.card-body {
+    padding: 50px; 
+}
