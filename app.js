@@ -4,6 +4,7 @@ const app = express();
 const registration = require("./App/server/controllers/registration");
 const search = require("./App/server/controllers/search");
 const login = require("./App/server/controllers/login");
+const borrower = require("./App/server/controllers/borrow");
 const bcrypt = require('bcrypt');
 var session = require('express-session');
 
@@ -55,9 +56,9 @@ app.post("/register",  async (req, res) => {
                 register.register(registerData.name, hash, "member", registerData.email, registerData.birthday, registerData.phone)
                 res.render("login");
             })
-        })
+        });
     }
-})
+});
 
 app.post("/login", async (req, res) => {
     loginData = {
@@ -88,11 +89,12 @@ app.post("/search", async (req, res) => {
 
 app.post("/borrow", async (req, res) => {
     console.log(req.body);
+    let borrow = new borrower();
+    borrow.borrower();
     res.render("home");
 })
 
 const port = 8080;
 app.listen(port, () => {
     console.log(`listening on port: ${port} `)
-
 })
