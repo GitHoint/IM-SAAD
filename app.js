@@ -7,6 +7,7 @@ const login = require("./App/server/controllers/login");
 const borrower = require("./App/server/controllers/borrow");
 const bcrypt = require('bcrypt');
 var session = require('express-session');
+const returner = require('./App/server/controllers/return');
 
 //session
 var currUser = null;
@@ -90,9 +91,14 @@ app.post("/search", async (req, res) => {
 app.post("/borrow", async (req, res) => {
     console.log(req.body);
     let borrow = new borrower();
-    borrow.borrower();
+    borrow.borrower(currUser,req.body.mediaId);
     res.render("home");
-})
+});
+
+app.post("/return", async(req, res) =>{
+    let ret = new returner();
+    
+});
 
 const port = 8080;
 app.listen(port, () => {
