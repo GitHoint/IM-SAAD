@@ -64,7 +64,7 @@ app.post("/register",  async (req, res) => {
         email: req.body.email,
     }
     const emailCheck = new login();
-    emailCheck.loginUser(registerData.email, + "'", function(result){
+    emailCheck.loginUser("'" + registerData.email, + "'", function(result){
         if (result != null){
             if (req.body.password == req.body.confirm) {
                 password = req.body.password;
