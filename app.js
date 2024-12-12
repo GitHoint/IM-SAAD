@@ -30,9 +30,6 @@ app.use(express.static(__dirname + '/App/client'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//hashing
-const saltRounds = 10;
-
 //Roots
 app.get("/", (req, res) => {
     res.render("home", {currUser: currUser });
@@ -68,7 +65,7 @@ app.post("/register",  async (req, res) => {
         if (result != null){
             if (req.body.password == req.body.confirm) {
                 password = req.body.password;
-                bcrypt.genSalt(saltRounds, function (err, salt) {
+                bcrypt.genSalt(10, function (err, salt) {
                     bcrypt.hash(password, salt, function (err, hash) {
                         const register = new registration();
                         console.log(hash);
@@ -94,9 +91,12 @@ app.post("/login", async (req, res) => {
     loginObj.loginUser("'" + req.body.email + "'", function(result){
         console.log(result)
         if (result != null) {
-            var match = bcrypt.compare(req.body.password, result.password);
-            if (match) {
-                console.log("correct match");
+            if (bcrypt.compareSync(req.body.password, result.password)) {
+                currUser.ID = result.userid;
+                currUser.email = result.email;
+                currUser.type = result.role;
+                currUser.name = result.username;
+                res.render("home", {currUser: currUser})
             }
         }
     })
