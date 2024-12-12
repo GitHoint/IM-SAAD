@@ -94,18 +94,10 @@ app.post("/login", async (req, res) => {
     loginObj.loginUser("'" + req.body.email + "'", function(result){
         console.log(result)
         if (result != null) {
-            bcrypt.compare(req.body.password, result.password, function(err, res) {
-                if (req.body.password != result.password){
-                    console.log("incorrect password");
-                } else {
-                    currUser = {
-                        ID: result.userid,
-                        name: result.username,
-                        email: result.email,
-                        type: result.role
-                    }
-                }
-            })
+            var match = bcrypt.compare(req.body.password, result.password);
+            if (match) {
+                console.log("correct match");
+            }
         }
     })
 })
