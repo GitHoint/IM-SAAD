@@ -11,8 +11,18 @@ const returner = require('./App/server/controllers/return');
 const procurement = require('./App/server/controllers/procurement');
 
 //session
-var currUser = null;
-var loginState = false;
+var currUser = {
+    ID: null,
+    name: null,
+    email: null,
+    type: null
+};
+const reset = {
+    ID: null,
+    name: null,
+    email: null,
+    type: null
+};
 
 app.set('view engine', 'ejs');
 
@@ -25,19 +35,19 @@ const saltRounds = 10;
 
 //Roots
 app.get("/", (req, res) => {
-    res.render("home");
+    res.render("home", {currUser: currUser });
 });
 
 app.get("/register", (req, res) => {
-    res.render("register");
+    res.render("register", {currUser: currUser });
 });
 
 app.get("/login", (req, res) => {
-    res.render("login");
+    res.render("login", {currUser: currUser });
 })
 
 app.get("/home", (req, res) => {
-    res.render("home");
+    res.render("home", {currUser: currUser });
 })
 
 app.get("/procurement",(req,res)=>{
@@ -53,17 +63,26 @@ app.post("/register",  async (req, res) => {
         phone: req.body.phone,
         email: req.body.email,
     }
-    if (req.body.password == req.body.confirm) {
-        password = req.body.password;
-        bcrypt.genSalt(saltRounds, function (err, salt) {
-            bcrypt.hash(password, salt, function (err, hash) {
-                const register = new registration();
-                console.log(hash);
-                register.register(registerData.name, hash, "member", registerData.email, registerData.birthday, registerData.phone)
-                res.render("login");
-            })
-        });
-    }
+    const emailCheck = new login();
+    emailCheck.loginUser(registerData.email, + "'", function(result){
+        if (result != null){
+            if (req.body.password == req.body.confirm) {
+                password = req.body.password;
+                bcrypt.genSalt(saltRounds, function (err, salt) {
+                    bcrypt.hash(password, salt, function (err, hash) {
+                        const register = new registration();
+                        console.log(hash);
+                        register.register(registerData.name, hash, "member", registerData.email, registerData.birthday, registerData.phone)
+                        res.render("login");
+                    })
+                });
+            } else {
+                console.log("Password does not match");
+            }
+        } else {
+            console.log("A user exists with this email");
+        }
+    })
 });
 
 app.post("/login", async (req, res) => {
@@ -73,7 +92,21 @@ app.post("/login", async (req, res) => {
     }
     const loginObj = new login();
     loginObj.loginUser("'" + req.body.email + "'", function(result){
-        console.log(result);
+        console.log(result)
+        if (result != null) {
+            bcrypt.compare(req.body.password, result.password, function(err, res) {
+                if (req.body.password != result.password){
+                    console.log("incorrect password");
+                } else {
+                    currUser = {
+                        ID: result.userid,
+                        name: result.username,
+                        email: result.email,
+                        type: result.role
+                    }
+                }
+            })
+        }
     })
 })
 
