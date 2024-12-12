@@ -9,6 +9,7 @@ const bcrypt = require('bcrypt');
 var session = require('express-session');
 const returner = require('./App/server/controllers/return');
 const procurement = require('./App/server/controllers/procurement');
+const { getHashes } = require("crypto");
 
 //session
 var currUser = {
@@ -16,7 +17,7 @@ var currUser = {
     name: null,
     email: null,
     type: null
-};
+}
 const reset = {
     ID: null,
     name: null,
@@ -91,21 +92,25 @@ app.post("/register",  async (req, res) => {
 });
 
 app.post("/login", async (req, res) => {
-    loginData = {
-        email: req.body.email,
-        password: req.body.password
-    }
     const loginObj = new login();
-    loginObj.loginUser("'" + req.body.email + "'", function(result){
-        console.log(result)
+    loginObj.loginUser("'" + req.body.email + "'", function (result) {
         if (result != null) {
-            if (bcrypt.compare(req.body.password, result.password)) {
-                currUser.ID = result.userid;
-                currUser.email = result.email;
-                currUser.type = result.role;
-                currUser.name = result.username;
-                res.render("home", {currUser: currUser})
+            console.log(result);
+            var dbData = result[0];
+            var hashed = dbData.password;
+            if (bcrypt.compareSync(req.body.password, hashed)) {
+                currUser.ID = dbData.userId;
+                currUser.name = dbData.username;
+                currUser.type = dbData.role;
+                currUser.email = dbData.email;
+                console.log(currUser);
+                res.render("home", { currUser: currUser });
             }
+            else {
+                console.log("Password Incorrect");
+            }
+        } else {
+            console.log("User not recognised.");
         }
     })
 })
