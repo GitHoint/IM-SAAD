@@ -10,7 +10,10 @@ var session = require('express-session');
 const returner = require('./App/server/controllers/return');
 
 //session
-var currUser = null;
+var currUser = {
+    type: null,
+    name: "fella"
+};
 var loginState = false;
 
 app.set('view engine', 'ejs');
@@ -24,19 +27,19 @@ const saltRounds = 10;
 
 //Roots
 app.get("/", (req, res) => {
-    res.render("home");
+    res.render("home", {currUser: currUser });
 });
 
 app.get("/register", (req, res) => {
-    res.render("register");
+    res.render("register", {currUser: currUser });
 });
 
 app.get("/login", (req, res) => {
-    res.render("login");
+    res.render("login", {currUser: currUser });
 })
 
 app.get("/home", (req, res) => {
-    res.render("home");
+    res.render("home", {currUser: currUser });
 })
 
 //Posts
