@@ -15,7 +15,7 @@ var currUser = {
     ID: null,
     name: null,
     email: null,
-    type: "member"
+    type: null
 };
 const reset = {
     ID: null,
@@ -99,7 +99,7 @@ app.post("/login", async (req, res) => {
     loginObj.loginUser("'" + req.body.email + "'", function(result){
         console.log(result)
         if (result != null) {
-            if (bcrypt.compareSync(req.body.password, result.password)) {
+            if (bcrypt.compare(req.body.password, result.password)) {
                 currUser.ID = result.userid;
                 currUser.email = result.email;
                 currUser.type = result.role;
