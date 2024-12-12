@@ -15,7 +15,7 @@ var currUser = {
     ID: null,
     name: null,
     email: null,
-    type: null
+    type: "member"
 };
 const reset = {
     ID: null,
@@ -25,6 +25,7 @@ const reset = {
 };
 
 app.set('view engine', 'ejs');
+//app.set('views', path.join(__dirname, '/App/client')); Commented out for development, to be sorted at final stage
 
 app.use(express.static(__dirname + '/App/client'));
 app.use(express.json());
@@ -48,8 +49,15 @@ app.get("/home", (req, res) => {
 })
 
 app.get("/procurement",(req,res)=>{
-    res.render("stock-procurement");
+    res.render("stock-procurement", {currUser: currUser });
 })
+app.get("/account-page", (req, res) => {
+    res.render("account-page", {currUser: currUser })
+})
+app.get("/return", (req, res) => {
+    res.render("return", {currUser: currUser })
+})
+
 
 //Posts
 app.post("/register",  async (req, res) => {
