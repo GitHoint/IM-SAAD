@@ -7,7 +7,7 @@ consulted: {list everyone whose opinions are sought (typically subject-matter ex
 informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication}
 ---
 
-# AUTHORIZATION CHOICE
+# User Role Authorization
 
 ## Context and Problem Statement
 
