@@ -16,13 +16,15 @@ class procurement{
     constructor(){
         this.media = new media();
     }
-    async procure(name,size,description,type){
+    async procure(name,size,description,type,released){
         let entry = [
             name,
             size,
             description,
-            type
+            type,
+            released
         ]
-        this.media.insertMedia(entry)
+        this.media.mediaInsert(entry)
     }
 }
+module.exports = procurement;

@@ -13,25 +13,21 @@ Notes:
 var user = require('../models/user');
 
 class account{
-    constructor(email,password){
+    constructor(){
         this.member = new user();
-        this.password = password;
-        this.email = email;
-        this.login = 'email = ' + email + ' AND ' + ' password = ' + password; 
+        this.userId = "userId = "; 
     }
-    email(email){
-        this.member.userUpdate('email = ' + email ,this.login);
+    email(email,id){
+        this.member.userUpdate('email = ' + "'" + email + "'" ,this.userId + id);
     }
-    password(password){
-        this.member.userUpdate('password = ' + password,this.login);
+    username(username,id){
+        this.member.userUpdate('username = ' + "'" + username + "'",this.userId + id);
     }
-    username(username){
-        this.member.userUpdate('username = ' + username,this.login);
+    birth(dob,id){
+        this.member.userUpdate('dob = ' + "'" + dob + "'",this.userId + id);
     }
-    birth(dob){
-        this.member.userUpdate('dob = ' + dob,this.login);
-    }
-    phone(phone){
-        this.member.userUpdate('phone = ' + phone,this.login);
+    phone(phone,id){
+        this.member.userUpdate('phone = ' + "'" + phone + "'",this.userId + id);
     }
 }
+module.exports = account;

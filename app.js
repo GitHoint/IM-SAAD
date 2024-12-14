@@ -115,17 +115,20 @@ app.post("/login", async (req, res) => {
     })
 })
 
-app.post("/procure", async (req, rea)=>{
-    let procue = new procurement();
-
+app.post("/procure", async (req, res)=>{
+    let procure = new procurement();
+    procure.procure(req.body.title,"0",req.body.description,req.body.mediaType,req.body.releaseYear);
+    res.render("stock-procurement", {currUser: currUser });
 })
 
 app.post("/search", async (req, res) => {
     let searcher = new search();
     searcher.searchMedia("name = " + "'" + req.body.query +"'" + " AND " + " userId = 1" , function(results){
         res.render("catalogue", {
-            searchResults: results
-        })
+            searchResults: results,
+        },
+        {currUser: currUser }
+    );
     });
 })
 
@@ -133,13 +136,13 @@ app.post("/borrow", async (req, res) => {
     console.log(req.body);
     let borrow = new borrower();
     borrow.borrower(currUser,req.body.mediaId);
-    res.render("home");
+    res.render("home",{currUser: currUser });
 });
 
 app.post("/return", async(req, res) =>{
     let ret = new returner();
     ret.returnMedia(req.body.mediaId)
-    res.render("return");
+    res.render("return",{currUser: currUser });
 });
 
 app.post("/returnSearch", async(req,res) =>{
@@ -147,7 +150,7 @@ app.post("/returnSearch", async(req,res) =>{
     searcher.searchMedia("userId = " + currUser , function(results){
         res.render("return", {
             searchResults: results
-        })
+        },{currUser: currUser })
     });
 });
 
