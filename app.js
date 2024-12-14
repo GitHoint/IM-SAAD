@@ -115,10 +115,8 @@ app.post("/login", async (req, res) => {
     })
 })
 
-app.post("/catalogue", async (req, res) =>{
-})
-
 app.post("/procure", async (req, rea)=>{
+    let procue = new procurement();
 
 })
 
