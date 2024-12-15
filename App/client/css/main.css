@@ -330,7 +330,7 @@ h6 {
     margin-bottom: 20px;
     padding-bottom: 10px;
 }
-
+/* Style for the container that holds the card */
 .card-container {
     display: flex;
     justify-content: center;
@@ -344,73 +344,4 @@ h6 {
 }
 .card-body {
     padding: 50px; 
-}
-.page-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 0 15px; /* Adds padding for mobile responsiveness */
-}
-
-/* Style for the user card */
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-}
-
-/* Card style */
-.card.custom-border-card {
-    width: 80%; 
-    max-width: 800px;
-    border-radius: 15px;
-    display: flex; /* Use flexbox to align profile picture and text */
-    overflow: hidden; /* Prevent content spilling out of the card */
-}
-
-/* Style for the user profile section */
-.user-card-full .user-profile {
-    background-color: rgb(223, 185, 103); /* Light green background */
-    width: 35%; /* Profile picture takes up 35% of the card width */
-    padding: 20px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Profile image styling */
-.profile-img {
-    width: 80%; /* Make the image responsive */
-    height: auto;
-    border-radius: 50%; /* Make the image circular */
-    object-fit: cover;
-}
-
-/* Style for the content section on the right */
-.card-block {
-    width: 65%; /* The text content takes up the remaining 65% */
-    padding: 20px;
-    background-color: #fff; /* White background for content */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Styling for the headings inside the card */
-.card-block h6 {
-    font-weight: 600;
-    font-size: 16px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-/* Style for text paragraphs in the card */
-.card-block p {
-    font-size: 14px;
-    margin-bottom: 10px;
 }
