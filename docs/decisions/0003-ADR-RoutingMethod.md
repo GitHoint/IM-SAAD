@@ -48,7 +48,7 @@ Chosen option: "{title of option 1}", because {justification. e.g., only option,
 
 ### {title of option 1}
 
-<!-- This is an optional element. Feel free to remove. -->
+<!-- This is an optional element. Feel freeto remove. -->
 {example | description | pointer to more information | …}
 
 * Good, because {argument a}

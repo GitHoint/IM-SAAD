@@ -20,7 +20,7 @@
             <div class="card-body">
                 <h2 class="card-title">Add Your New Stock Here</h2>
                 <p class="card-text">Please enter the details of the stock you wish to request</p>
-                <form>
+                <form method="post" action="/procure" >
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
                         <input type="text" class="form-control form-control-lg" id="title" placeholder="Title Here" name="title">
@@ -31,11 +31,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="release-year" class="form-label">Year of Release</label>
-                        <input type="text" class="form-control form-control-sm" id="release-year" placeholder="Year of Release Here" name="release-year">
+                        <input type="text" class="form-control form-control-sm" id="releaseYear" placeholder="Year of Release Here" name="release-year">
                     </div>
                     <div class="mb-3">
                         <label for="browser" class="form-label">Choose The Media Type</label>
-                        <select class="form-control">
+                        <select class="form-control" name="mediaType">
                           <option>Choose Media Type</option>
                           <option>Cd</option>
                           <option>Book</option>
@@ -43,7 +43,7 @@
                           <option>Multi-media Platforms</option>
                         </select>
                       </div>
-                    <a href="confirmation.html" class="btn btn-custom mt-auto">Submit Request</a> 
+                    <button class="btn btn-custom mt-auto" type = "submit">submit</button>
                 </form>
             </div>
         </div>
