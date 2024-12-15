@@ -7,7 +7,7 @@ consulted: {list everyone whose opinions are sought (typically subject-matter ex
 informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication}
 ---
 
-# {short title, representative of solved problem and found solution}
+# {}
 
 ## Context and Problem Statement
 
