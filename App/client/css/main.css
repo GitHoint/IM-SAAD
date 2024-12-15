@@ -340,6 +340,7 @@ h6 {
     width: 80%; 
     max-width: 800px; 
     border-radius: 15px;
+    margin-bottom: 15px;
 }
 .card-body {
     padding: 50px; 
