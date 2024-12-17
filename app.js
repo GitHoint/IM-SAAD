@@ -10,12 +10,15 @@ var session = require('express-session');
 const returner = require('./App/server/controllers/return');
 const procurement = require('./App/server/controllers/procurement');
 const { getHashes } = require("crypto");
+const account = require('./App/server/controllers/account');
 
 //session
 var currUser = {
     ID: null,
     name: null,
     email: null,
+    birthday: null,
+    phone: null,
     type: null
 }
 const reset = {
@@ -54,6 +57,9 @@ app.get("/procurement",(req,res)=>{
 })
 app.get("/account-page", (req, res) => {
     res.render("account-page", {currUser: currUser })
+})
+app.get("/account-edit", (req, res) => {
+    res.render("account-edit", {currUser: currUser })
 })
 app.get("/returnSearch", async(req,res) =>{
     let searcher = new search();
@@ -109,6 +115,8 @@ app.post("/login", async (req, res) => {
                 currUser.name = dbData.username;
                 currUser.type = dbData.role;
                 currUser.email = dbData.email;
+                currUser.birthday = dbData.dob;
+                currUser.phone = dbData.phone;
                 console.log(currUser);
                 res.render("home", { currUser: currUser });
             }
@@ -173,6 +181,20 @@ app.post("/return", async(req, res) =>{
     ret.returnMedia(req.body.mediaId)
     res.render("home",{currUser: currUser });
 });
+
+app.post("/updateDetails"), async (req, res) => {
+    let currAccount = new account();
+    currAccount.email(req.body.email, currUser.ID);
+    currAccount.birth(req.body.birthday, currUser.ID);
+    currAccount.username(req.body.fname, currUser.ID);
+    currAccount.phone(req.body.phone, currUser.ID);
+    res.render("account-page");
+}
+
+
+
+
+
 
 
 const port = 8080;

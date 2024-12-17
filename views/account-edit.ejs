@@ -10,34 +10,7 @@
     <title>Account Edit :: AML</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-custom bg-custom">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="">AML</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="home.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="catalogue.html">Catalogue</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="bi bi-person"></i>Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-right"></i> Login</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <%- include("../views/includes/header") -%>
     <main>
         <div class="page-content page-container" id="page-content">
             <div class="padding">
@@ -54,29 +27,31 @@
                                 </div>
                                 <div class="col-sm-8">
                                     <div class="card-block">
-                                        <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
-                                        <div class="row">
-                                            <div class="col-sm-6 mb-3">
-                                                <p class="m-b-10 f-w-600">Email</p>
-                                                <input type="email" id="email" name="email" class="form-control" value="oligars13@gmail.com">
+                                        <form action="/updateDetails" method="post">
+                                            <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                            <div class="row">
+                                                <div class="col-sm-6 mb-3">
+                                                    <p class="m-b-10 f-w-600">Email</p>
+                                                    <input type="email" id="email" name="email" class="form-control" value= <%= currUser.email %> > 
+                                                </div>
+                                                <div class="col-sm-6 mb-3">
+                                                    <p class="m-b-10 f-w-600">Phone</p>
+                                                    <input type="number" id="quantity" name="quantity" class="form-control" value= <%= currUser.phone %> >
+                                                </div>
                                             </div>
-                                            <div class="col-sm-6 mb-3">
-                                                <p class="m-b-10 f-w-600">Phone</p>
-                                                <input type="number" id="quantity" name="quantity" class="form-control" value="07703395516">
+                                            <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Personal Information</h6>
+                                            <div class="row">
+                                                <div class="col-sm-6 mb-3">
+                                                    <p class="m-b-10 f-w-600">Full Name</p>
+                                                    <input type="text" id="fname" name="fname" class="form-control" value= <%= currUser.name %> >
+                                                </div>
+                                                <div class="col-sm-6 mb-3">
+                                                    <p class="m-b-10 f-w-600">Birthday</p>
+                                                    <input type="date" id="birthday" name="birthday" class="form-control" value= <%= currUser.birthday %> >
+                                                </div>
+                                                <a href="" class="btn btn-custom mt-auto">Update</a> 
                                             </div>
-                                        </div>
-                                        <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Personal Information</h6>
-                                        <div class="row">
-                                            <div class="col-sm-6 mb-3">
-                                                <p class="m-b-10 f-w-600">Full Name</p>
-                                                <input type="text" id="fname" name="fname" class="form-control" value="Oliver Topley">
-                                            </div>
-                                            <div class="col-sm-6 mb-3">
-                                                <p class="m-b-10 f-w-600">Birthday</p>
-                                                <input type="date" id="birthday" name="birthday" class="form-control" value="06/01/04">
-                                            </div>
-                                            <a href="" class="btn btn-custom mt-auto">Update</a> 
-                                        </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
