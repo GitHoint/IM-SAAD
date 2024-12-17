@@ -23,7 +23,7 @@ informed: {list everyone who is kept up-to-date on progress; and with whom there
 ## Considered Options
 
 * {token based}
-* {title of option 2}
+* {User role based}
 * {title of option 3}
 * … <!-- numbers of options can vary -->
 
