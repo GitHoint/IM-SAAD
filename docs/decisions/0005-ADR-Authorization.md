@@ -11,18 +11,18 @@ informed: {list everyone who is kept up-to-date on progress; and with whom there
 
 ## Context and Problem Statement
 
-{Describe the context and problem statement, e.g., in free form using two to three sentences or in the form of an illustrative story. You may want to articulate the problem in form of a question and add links to collaboration boards or issue management systems.}
+{we needed to decide on hpw we would implement authorization in our program between different users}
 
-<!-- This is an optional element. Feel free to remove. -->
+
 ## Decision Drivers
 
-* {decision driver 1, e.g., a force, facing concern, …}
-* {decision driver 2, e.g., a force, facing concern, …}
-* … <!-- numbers of drivers can vary -->
+* {Needed to allow for multiple different types of users}
+* {Needed to make sure that functionality could be seperated }
+
 
 ## Considered Options
 
-* {title of option 1}
+* {token based}
 * {title of option 2}
 * {title of option 3}
 * … <!-- numbers of options can vary -->

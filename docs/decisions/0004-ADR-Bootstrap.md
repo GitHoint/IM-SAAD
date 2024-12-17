@@ -16,31 +16,30 @@ we had to make a descions of what frameowkrs and or css libraries we would use t
 <!-- This is an optional element. Feel free to remove. -->
 ## Decision Drivers
 
-* {decision driver 1, e.g., a force, facing concern, …}
-* {decision driver 2, e.g., a force, facing concern, …}
-* … <!-- numbers of drivers can vary -->
+* {Speed of Development due to time constraints}
+* {Ease of setup}
+* {Quality of widgets}
+* {Effect on performance}
+* {Usability}
 
 ## Considered Options
 
-* {title of option 1}
-* {title of option 2}
-* {title of option 3}
-* … <!-- numbers of options can vary -->
+* {Tailwind}
+* {Bulma}
+* {Bootstrap}
+
 
 ## Decision Outcome
 
-Chosen option: "{title of option 1}", because {justification. e.g., only option, which meets k.o. criterion decision driver | which resolves force {force} | … | comes out best (see below)}.
+Chosen option: "{Bootstrap}", because {It is a fairly lightweight, easy to setup and familiar looking css framework that allows for quck production of applications especially like in our case with a limited scope for a proof of concept}.
 
-<!-- This is an optional element. Feel free to remove. -->
 ### Consequences
 
-* Good, because {positive consequence, e.g., improvement of one or more desired qualities, …}
-* Bad, because {negative consequence, e.g., compromising one or more desired qualities, …}
-* … <!-- numbers of consequences can vary -->
+* Good, because {It is a familiar style that users will have experienced before and is easy to follow}
+* Good, because {It is quick to setup and produce work meaning shorter developemnt times}
+* Bad, because {It is fairly basic looking compared to other frameworks and app styles out there}
+* Bad, because {It is less lgihtweight than other options so can begin to hinder performance if too many widgets used}
 
-<!-- This is an optional element. Feel free to remove. -->
-### Confirmation
 
-{Describe how the implementation of/compliance with the ADR can/will be confirmed. Is the chosen design and its implementation in line with the decision? E.g., a design/code review or a test with a library such as ArchUnit can help validate this. Note that although we classify this element as optional, it is included in many ADRs.}
 
 

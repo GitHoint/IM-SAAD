@@ -153,6 +153,16 @@ app.post("/search", async (req, res) => {
 })
 
 app.post("/borrow", async (req, res) => {
+    /*
+    Title: Account
+    Description: this a post call for the borrow functionality of the scope thay will use the borrow controller
+    and render a media to be assinged to a logged in current user
+    Primary Author: Patrick Newell
+    Further Authors:
+    Date Last Modified: 16/12/2024
+    Technologies: Nodejs/Express
+    Notes:
+    */
     console.log(req.body);
     let borrow = new borrower();
     borrow.borrower(currUser.ID,req.body.mediaId);
