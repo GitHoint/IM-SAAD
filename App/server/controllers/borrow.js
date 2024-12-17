@@ -18,7 +18,7 @@ class borrow{
         this.media = new media()
     }
     async borrower(memberId,mediaId){
-        this.media.mediaUpdate('mediaId = '+ mediaId,'userId = ' + memberId);
+        this.media.mediaUpdate('userId = ' + memberId,'mediaId = '+ mediaId );
     }
 }
 module.exports = borrow;

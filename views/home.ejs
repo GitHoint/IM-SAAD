@@ -45,7 +45,10 @@
                         <p class="card-text">
                             This is where you can find our catalogue with a wide range of different media, including books, journals, periodicals, CDs, DVDs, games, and multimedia titles.
                         </p>
-                        <a href="catalogue.html" class="btn btn-custom mt-auto">Browse Catalogue</a> 
+                        <form action="/search" method="post">
+                            <input type="hidden" id="browsed" name="query" value="">
+                            <button class="btn btn-custom mt-auto" type="submit">Browse Catalogue</button>
+                        </form>
                     </div>
                 </div>
             </div>

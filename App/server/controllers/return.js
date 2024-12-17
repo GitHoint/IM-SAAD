@@ -19,7 +19,7 @@ class returner{
         this.media = new media();
     }
     async returnMedia(mediaId){
-        this.media.mediaUpdate('mediaId = '+ mediaId,'userId = 1');
+        this.media.mediaUpdate('userId = 1','mediaId = '+ mediaId);
     }
 }
 

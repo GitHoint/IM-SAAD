@@ -55,10 +55,16 @@ app.get("/procurement",(req,res)=>{
 app.get("/account-page", (req, res) => {
     res.render("account-page", {currUser: currUser })
 })
-app.get("/return", (req, res) => {
-    res.render("return", {currUser: currUser })
-})
-
+app.get("/returnSearch", async(req,res) =>{
+    let searcher = new search();
+    searcher.searchMedia("userId = " + currUser.ID , function(results){
+        console.log(results);
+        res.render("return", {
+            searchResults: results,
+            currUser: currUser 
+        })
+    });
+});
 
 //Posts
 app.post("/register",  async (req, res) => {
@@ -123,36 +129,41 @@ app.post("/procure", async (req, res)=>{
 
 app.post("/search", async (req, res) => {
     let searcher = new search();
-    searcher.searchMedia("name = " + "'" + req.body.query +"'" + " AND " + " userId = 1" , function(results){
-        res.render("catalogue", {
-            searchResults: results,
-        },
-        {currUser: currUser }
-    );
-    });
+    console.log(req.body.query);
+    if(req.body.query == ""){
+        searcher.searchMedia( " userId = 1" , function(results){
+            console.log(results);
+            res.render("catalogue", {
+                searchResults: results,
+                currUser: currUser
+            }
+        );
+        });
+
+    }else{
+        searcher.searchMedia("name = " + "'" + req.body.query +"'" + " AND " + " userId = 1" , function(results){
+            res.render("catalogue", {
+                searchResults: results,
+                currUser: currUser
+            }
+        );
+        });
+    }
+    
 })
 
 app.post("/borrow", async (req, res) => {
     console.log(req.body);
     let borrow = new borrower();
-    borrow.borrower(currUser,req.body.mediaId);
+    borrow.borrower(currUser.ID,req.body.mediaId);
     res.render("home",{currUser: currUser });
 });
-
 app.post("/return", async(req, res) =>{
     let ret = new returner();
     ret.returnMedia(req.body.mediaId)
-    res.render("return",{currUser: currUser });
+    res.render("home",{currUser: currUser });
 });
 
-app.post("/returnSearch", async(req,res) =>{
-    let searcher = new search();
-    searcher.searchMedia("userId = " + currUser , function(results){
-        res.render("return", {
-            searchResults: results
-        },{currUser: currUser })
-    });
-});
 
 const port = 8080;
 app.listen(port, () => {

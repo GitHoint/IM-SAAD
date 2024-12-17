@@ -7,11 +7,11 @@ consulted: {list everyone whose opinions are sought (typically subject-matter ex
 informed: {list everyone who is kept up-to-date on progress; and with whom there is a one-way communication}
 ---
 
-# {Security and Encyrotion Methods}
+# {Tech Stack}
 
 ## Context and Problem Statement
 
-{We needed to have a way of keeping user accounts secure }
+{Describe the context and problem statement, e.g., in free form using two to three sentences or in the form of an illustrative story. You may want to articulate the problem in form of a question and add links to collaboration boards or issue management systems.}
 
 <!-- This is an optional element. Feel free to remove. -->
 ## Decision Drivers
