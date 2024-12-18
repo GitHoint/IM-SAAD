@@ -26,6 +26,9 @@ html{
 }body{
     background-color: #575353;
     height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 main{
     display: block;
@@ -97,11 +100,9 @@ hr.solid {
 }
 .footer{
     padding: 15px;
-    position: fixed;
     text-align: center;
     width: 100%;
     height: auto;
-    bottom: 0px;
     font-weight: 500;
     opacity: 80%;
     color: whitesmoke;
