@@ -25,6 +25,8 @@ const reset = {
     ID: null,
     name: null,
     email: null,
+    birthday: null,
+    phone: null,
     type: null
 };
 
@@ -45,7 +47,7 @@ app.get("/register", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-    res.render("login", {currUser: currUser });
+    res.render("login", {currUser: currUser, errorMsg: null });
 })
 
 app.get("/home", (req, res) => {
@@ -73,6 +75,17 @@ app.get("/returnSearch", async(req,res) =>{
 });
 
 //Posts
+/*
+    Title: Login & Registration
+    Description: the following 2 post calls handle the login and registration for the user, along with
+    hashing of passwords for added security, and assignment of user roles for user access control
+    edit: also includes logout functionality
+    Primary Author: Joshua Osborne
+    Further Authors:
+    Date Last Modified: 18/12/2024
+    Technologies: Nodejs/Express
+    Notes:
+    */
 app.post("/register",  async (req, res) => {
     var password = null;
     const registerData = {
@@ -106,7 +119,7 @@ app.post("/register",  async (req, res) => {
 app.post("/login", async (req, res) => {
     const loginObj = new login();
     loginObj.loginUser("'" + req.body.email + "'", function (result) {
-        if (result != null) {
+        if (result.length > 0) {
             console.log(result);
             var dbData = result[0];
             var hashed = dbData.password;
@@ -121,14 +134,18 @@ app.post("/login", async (req, res) => {
                 res.render("home", { currUser: currUser });
             }
             else {
-                console.log("Password Incorrect");
+                res.render("login", {errorMsg: "Incorrect Password"});
             }
         } else {
-            console.log("User not recognised.");
+            res.render("login", {errorMsg: "User Not Recognised"});
         }
     })
 })
 
+app.post("/logout", async (req, res) => {
+    currUser = reset;
+    res.render("home", {currUser: currUser});
+})
 app.post("/procure", async (req, res)=>{
     let procure = new procurement();
     procure.procure(req.body.title,"0",req.body.description,req.body.mediaType,req.body.releaseYear);
@@ -188,15 +205,12 @@ app.post("/updateDetails"), async (req, res) => {
     currAccount.birth(req.body.birthday, currUser.ID);
     currAccount.username(req.body.fname, currUser.ID);
     currAccount.phone(req.body.phone, currUser.ID);
+    currUser.email = req.body.email;
+    currUser.birthday = req.body.birthday;
+    currUser.name = req.body.fname;
+    currUser.phone = req.body.phone;
     res.render("account-page");
 }
-
-
-
-
-
-
-
 const port = 8080;
 app.listen(port, () => {
     console.log(`listening on port: ${port} `)
