@@ -17,32 +17,32 @@
             <hr class="my-4">
           <div class="d-flex flex-row justify-content-evenly">
             <div class="form-floating mb-3 mr-4">
-              <input type="text" name="firstname" class="form-control" id="floatingInput" placeholder="John">
+              <input type="text" name="firstname" class="form-control" id="floatingInput" placeholder="John" required>
               <label for="floatingInput">First Name</label>
             </div>
             <div class="form-floating mb-3 ">
-              <input type="text" name="surname" class="form-control" id="floatingInput" placeholder="Library">
+              <input type="text" name="surname" class="form-control" id="floatingInput" placeholder="Library" required>
               <label for="floatingInput">Last Name</label>
             </div>
             <div class="form-floating mb-3 ">
-              <input type="date" name="birthday" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="date" name="birthday" class="form-control" id="floatingInput" placeholder="name@example.com" required>
               <label for="floatingInput">Birthday</label>
             </div>
           </div>
           <div class="form-floating mb-3 ">
-            <input type="tel" name="phone" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="tel" name="phone" class="form-control" id="floatingInput" placeholder="name@example.com" required>
             <label for="floatingInput">Phone Number</label>
           </div>
           <div class="form-floating mb-3 ">
-            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
             <label for="floatingInput">Email address</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
             <label for="floatingPassword">Password</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" name="confirm" class="form-control" id="floatingPassword" placeholder="Password">
+            <input type="password" name="confirm" class="form-control" id="floatingPassword" placeholder="Password" required>
             <label for="floatingPassword">Confirm Password</label>
           </div>
           <div class="checkbox mb-3">
@@ -50,6 +50,7 @@
           <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
           <hr class="my-4">
           <small class="text-body-secondary">Already Have An Account? <a href="/login">Login Here!</a></small>
+          <p class="errorMsgLogin" id="errorMsg"><%= errorMsg %></p>
         </form>
       </div>
 

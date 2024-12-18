@@ -10,18 +10,23 @@ var session = require('express-session');
 const returner = require('./App/server/controllers/return');
 const procurement = require('./App/server/controllers/procurement');
 const { getHashes } = require("crypto");
+const account = require('./App/server/controllers/account');
 
 //session
 var currUser = {
     ID: null,
     name: null,
     email: null,
+    birthday: null,
+    phone: null,
     type: null
 }
 const reset = {
     ID: null,
     name: null,
     email: null,
+    birthday: null,
+    phone: null,
     type: null
 };
 
@@ -38,11 +43,11 @@ app.get("/", (req, res) => {
 });
 
 app.get("/register", (req, res) => {
-    res.render("register", {currUser: currUser });
+    res.render("register", {currUser: currUser, errorMsg: null });
 });
 
 app.get("/login", (req, res) => {
-    res.render("login", {currUser: currUser });
+    res.render("login", {currUser: currUser, errorMsg: null });
 })
 
 app.get("/home", (req, res) => {
@@ -54,6 +59,9 @@ app.get("/procurement",(req,res)=>{
 })
 app.get("/account-page", (req, res) => {
     res.render("account-page", {currUser: currUser })
+})
+app.get("/account-edit", (req, res) => {
+    res.render("account-edit", {currUser: currUser })
 })
 app.get("/returnSearch", async(req,res) =>{
     let searcher = new search();
@@ -67,6 +75,17 @@ app.get("/returnSearch", async(req,res) =>{
 });
 
 //Posts
+/*
+    Title: Login & Registration
+    Description: the following 2 post calls handle the login and registration for the user, along with
+    hashing of passwords for added security, and assignment of user roles for user access control
+    edit: also includes logout functionality
+    Primary Author: Joshua Osborne
+    Further Authors:
+    Date Last Modified: 18/12/2024
+    Technologies: Nodejs/Express
+    Notes:
+    */
 app.post("/register",  async (req, res) => {
     var password = null;
     const registerData = {
@@ -76,8 +95,9 @@ app.post("/register",  async (req, res) => {
         email: req.body.email,
     }
     const emailCheck = new login();
-    emailCheck.loginUser("'" + registerData.email + "'", function(result){
-        if (result != null){
+    emailCheck.loginUser("'" + registerData.email + "'", function (result) {
+        console.log(result)
+        if (result.length < 1){
             if (req.body.password == req.body.confirm) {
                 password = req.body.password;
                 bcrypt.genSalt(10, function (err, salt) {
@@ -85,14 +105,14 @@ app.post("/register",  async (req, res) => {
                         const register = new registration();
                         console.log(hash);
                         register.register(registerData.name, hash, "member", registerData.email, registerData.birthday, registerData.phone)
-                        res.render("login");
+                        res.render("login", { errorMsg: null });
                     })
                 });
             } else {
-                console.log("Password does not match");
+                res.render("register", { errorMsg: "Password does not match" });
             }
         } else {
-            console.log("A user exists with this email");
+            res.render("register", { errorMsg: "User already exists with this email"});
         }
     })
 });
@@ -100,7 +120,7 @@ app.post("/register",  async (req, res) => {
 app.post("/login", async (req, res) => {
     const loginObj = new login();
     loginObj.loginUser("'" + req.body.email + "'", function (result) {
-        if (result != null) {
+        if (result.length > 0) {
             console.log(result);
             var dbData = result[0];
             var hashed = dbData.password;
@@ -109,18 +129,24 @@ app.post("/login", async (req, res) => {
                 currUser.name = dbData.username;
                 currUser.type = dbData.role;
                 currUser.email = dbData.email;
+                currUser.birthday = dbData.dob;
+                currUser.phone = dbData.phone;
                 console.log(currUser);
                 res.render("home", { currUser: currUser });
             }
             else {
-                console.log("Password Incorrect");
+                res.render("login", {errorMsg: "Incorrect Password"});
             }
         } else {
-            console.log("User not recognised.");
+            res.render("login", {errorMsg: "User Not Recognised"});
         }
     })
 })
 
+app.post("/logout", async (req, res) => {
+    currUser = reset;
+    res.render("home", {currUser: currUser});
+})
 app.post("/procure", async (req, res)=>{
     let procure = new procurement();
     procure.procure(req.body.title,"0",req.body.description,req.body.mediaType,req.body.releaseYear);
@@ -173,6 +199,19 @@ app.post("/return", async(req, res) =>{
     ret.returnMedia(req.body.mediaId)
     res.render("home",{currUser: currUser });
 });
+app.post("/update"), async (req, res) => {
+    let currAccount = new account();
+    currAccount.email(req.body.email, currUser.ID);
+    currAccount.birth(req.body.birthday, currUser.ID);
+    currAccount.username(req.body.fname, currUser.ID);
+    currAccount.phone(req.body.phone, currUser.ID);
+    currUser.email = req.body.email;
+    currUser.birthday = req.body.birthday;
+    currUser.name = req.body.fname;
+    currUser.phone = req.body.phone;
+    res.render("account-page", {currUser: currUser});
+}
+
 
 
 const port = 8080;
