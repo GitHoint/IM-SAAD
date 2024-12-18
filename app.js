@@ -199,7 +199,7 @@ app.post("/return", async(req, res) =>{
     ret.returnMedia(req.body.mediaId)
     res.render("home",{currUser: currUser });
 });
-app.post("/update"), async (req, res) => {
+app.post("/update", async (req, res) => {
     let currAccount = new account();
     currAccount.email(req.body.email, currUser.ID);
     currAccount.birth(req.body.birthday, currUser.ID);
@@ -211,7 +211,7 @@ app.post("/update"), async (req, res) => {
     currUser.phone = req.body.phone;
     res.render("account-page", {currUser: currUser});
 }
-
+);
 
 
 const port = 8080;
