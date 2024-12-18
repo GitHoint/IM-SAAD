@@ -15,7 +15,7 @@ class email{
       this.email = email
       this.pass = pass;
       this.transporter = nodemailer.createTransport({
-          service: 'gmail',
+          service: 'hotmail',
           auth: {
             user: this.email,
             pass: this.pass
@@ -39,3 +39,4 @@ class email{
       });
     }
 }
+module.exports = email;

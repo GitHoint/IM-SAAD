@@ -11,6 +11,7 @@ const returner = require('./App/server/controllers/return');
 const procurement = require('./App/server/controllers/procurement');
 const { getHashes } = require("crypto");
 const account = require('./App/server/controllers/account');
+const mailer = require('./App/server/controllers/emailer');
 
 //session
 var currUser = {
@@ -175,12 +176,11 @@ app.post("/search", async (req, res) => {
         );
         });
     }
-    
 })
 
 app.post("/borrow", async (req, res) => {
     /*
-    Title: Account
+    Title: Borrow
     Description: this a post call for the borrow functionality of the scope thay will use the borrow controller
     and render a media to be assinged to a logged in current user
     Primary Author: Patrick Newell
@@ -191,11 +191,15 @@ app.post("/borrow", async (req, res) => {
     */
     console.log(req.body);
     let borrow = new borrower();
+    let mail = new mailer();
     borrow.borrower(currUser.ID,req.body.mediaId);
+    mail.send(currUser.email,"New Item Borrowed From AML", "Thank you for borrowing our stock please check your returns for other borrowed media")
     res.render("home",{currUser: currUser });
 });
 app.post("/return", async(req, res) =>{
     let ret = new returner();
+    let mail = new mailer();
+    mail.send(currUser.email,"Item Returned to AML", "Thank you for returnong our stock please check your returns for other borrowed media")
     ret.returnMedia(req.body.mediaId)
     res.render("home",{currUser: currUser });
 });
@@ -210,8 +214,7 @@ app.post("/update", async (req, res) => {
     currUser.name = req.body.fname;
     currUser.phone = req.body.phone;
     res.render("account-page", {currUser: currUser});
-}
-);
+});
 
 
 const port = 8080;

@@ -1,5 +1,4 @@
 ---
-# These are optional metadata elements. Feel free to remove any of them.
 status: "accepted"
 date: {17/11/24 when the decision was last updated}
 decision-makers: {Oliver Topley, Joshua Osborn, Patrick Newell}
