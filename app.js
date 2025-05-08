@@ -12,6 +12,7 @@ const procurement = require('./App/server/controllers/procurement');
 const { getHashes } = require("crypto");
 const account = require('./App/server/controllers/account');
 const mailer = require('./App/server/controllers/emailer');
+const fs = require('fs');
 
 //session
 var currUser = {
@@ -20,7 +21,7 @@ var currUser = {
     email: null,
     birthday: null,
     phone: null,
-    type: null
+    type: "staff"
 }
 const reset = {
     ID: null,
@@ -148,11 +149,33 @@ app.post("/logout", async (req, res) => {
     currUser = reset;
     res.render("home", {currUser: currUser});
 })
-app.post("/procure", async (req, res)=>{
+
+app.post("/procure", async (req, res) => {
     let procure = new procurement();
-    procure.procure(req.body.title,"0",req.body.description,req.body.mediaType,req.body.releaseYear);
-    res.render("stock-procurement", {currUser: currUser });
-})
+    procure.procure(req.body.title, "0", req.body.description, req.body.mediaType, req.body.releaseYear);
+
+    // Prepare log entry
+    const logEntry = `[${new Date().toISOString()}] User: ${currUser.name || 'Unknown'} (${currUser.email}) added stock - Title: ${req.body.title}, 
+    Description: ${req.body.description}, Media Type: ${req.body.mediaType}, Year: ${req.body.releaseYear}\n`;
+
+    // Define the log file path
+    const logFilePath = path.join(__dirname, 'logs', 'stock_log.txt');
+
+    // Ensure logs directory exists and append the log entry
+    fs.mkdir(path.dirname(logFilePath), { recursive: true }, (err) => {
+        if (err) {
+            console.error('Failed to create log directory:', err);
+        } else {
+            fs.appendFile(logFilePath, logEntry, (err) => {
+                if (err) {
+                    console.error('Failed to write log:', err);
+                }
+            });
+        }
+    });
+
+    res.render("stock-procurement", { currUser: currUser });
+});
 
 app.post("/search", async (req, res) => {
     let searcher = new search();
